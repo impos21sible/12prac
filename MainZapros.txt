@@ -1,0 +1,68 @@
+--create database DodoLarionov
+--go
+--use DodoLarionov
+--go
+--CREATE TABLE Rabotnik (
+--    id INT IDENTITY PRIMARY KEY not null,
+--    f NVARCHAR(255),
+--    i NVARCHAR(255),
+--    o NVARCHAR(255),
+--    doljnost NVARCHAR(255),
+--    dtr NVARCHAR(255),
+--    adress NVARCHAR(255),
+--    phone NVARCHAR(255)
+--);
+--CREATE TABLE Ingridient (
+--    id INT IDENTITY PRIMARY KEY not null,
+--    _name NVARCHAR(255),
+--    _description NVARCHAR(255),
+--    nalichie NVARCHAR(255)
+--);
+--CREATE TABLE Pitsa (
+--    id INT IDENTITY PRIMARY KEY not null,
+--    _name NVARCHAR(255),
+--    _description NVARCHAR(255),
+--    idINGRIDIENTS INT REFERENCES Ingridient(id),
+--    price INT
+--);
+--CREATE TABLE Client (
+--    id INT IDENTITY PRIMARY KEY not null,
+--    _name NVARCHAR(255)
+--);
+--CREATE TABLE Zakaz (
+--    id INT IDENTITY PRIMARY KEY not null,
+--    Client_id INT REFERENCES Client(id),
+--    Pitsa_id INT REFERENCES Pitsa(id),
+--    kolvo INT,
+--    itogprice INT,
+--    datatime NVARCHAR(255)
+--);
+
+use DodoLarionov
+go
+INSERT INTO Rabotnik 
+VALUES 
+('Иванов', 'Иван', Саныч, '2024-05-17', 'ул. Пушкина, д. 1', '1234567890'),
+('Петров', 'Петр', Саныч, 'Некассир', '2023-12-01', 'ул. Лермонтова, д. 2', '0987654321');
+
+INSERT INTO Ingridient 
+VALUES 
+('Томаты', 'Свежие томаты', 'Есть'),
+('Сыр', 'Моцарелла', 'Есть'),
+('Колбаса', 'Салями', 'Нет');
+
+INSERT INTO Pitsa 
+VALUES 
+('Маргарита', 'Пицца с томатами и сыром', 1, 500);
+
+INSERT INTO Client 
+VALUES 
+('ВоваПечкин');
+
+INSERT INTO Zakaz 
+VALUES 
+(1, 1, 2, NULL, '2024-05-17 12:30:00'); 
+
+
+
+
